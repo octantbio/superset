@@ -51,24 +51,11 @@ DATABASE_HOST = get_env_variable("DATABASE_HOST")
 DATABASE_PORT = get_env_variable("DATABASE_PORT")
 DATABASE_DB = get_env_variable("DATABASE_DB")
 
-EXAMPLES_USER = get_env_variable("EXAMPLES_USER")
-EXAMPLES_PASSWORD = get_env_variable("EXAMPLES_PASSWORD")
-EXAMPLES_HOST = get_env_variable("EXAMPLES_HOST")
-EXAMPLES_PORT = get_env_variable("EXAMPLES_PORT")
-EXAMPLES_DB = get_env_variable("EXAMPLES_DB")
-
-
 # The SQLAlchemy connection string.
 SQLALCHEMY_DATABASE_URI = (
     f"{DATABASE_DIALECT}://"
     f"{DATABASE_USER}:{DATABASE_PASSWORD}@"
     f"{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_DB}"
-)
-
-SQLALCHEMY_EXAMPLES_URI = (
-    f"{DATABASE_DIALECT}://"
-    f"{EXAMPLES_USER}:{EXAMPLES_PASSWORD}@"
-    f"{EXAMPLES_HOST}:{EXAMPLES_PORT}/{EXAMPLES_DB}"
 )
 
 REDIS_HOST = get_env_variable("REDIS_HOST")
@@ -109,6 +96,7 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
+WTF_CSRF_ENABLED = False
 PREVENT_UNSAFE_DB_CONNECTIONS = False
 FEATURE_FLAGS = {
     "ALERT_REPORTS": True,

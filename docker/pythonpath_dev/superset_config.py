@@ -96,8 +96,20 @@ class CeleryConfig:
 
 CELERY_CONFIG = CeleryConfig
 
-WTF_CSRF_ENABLED = False
 PREVENT_UNSAFE_DB_CONNECTIONS = False
+
+WTF_CSRF_ENABLED = False
+SESSION_COOKIE_SAMESITE = None
+ENABLE_PROXY_FIX = True
+HTTP_HEADERS = {}
+ENABLE_CORS=True
+CORS_OPTIONS = {
+  'supports_credentials': True,
+  'allow_headers': ['*'],
+  'resources':['*'],
+  'origins': ['*']
+}
+TALISMAN_ENABLED = False
 FEATURE_FLAGS = {
     "ALERT_REPORTS": True,
     "GENERIC_CHART_AXES": True,
